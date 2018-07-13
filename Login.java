@@ -183,11 +183,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jLabelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCloseMouseClicked
-        System.exit(0);// sehveni bagliyir 
+        System.exit(0);// sehveni bagliyir //close the window
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
     private void jLabelMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelMinMouseClicked
-        this.setState(JFrame.ICONIFIED); // sehveni minimum edir asagi salir
+        this.setState(JFrame.ICONIFIED); // sehveni minimum edir asagi salir // min thw page
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jLabelRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegisterMouseClicked
@@ -198,6 +198,8 @@ public class Login extends javax.swing.JFrame {
         rgf.setLocationRelativeTo(null);
         rgf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
+        
+        //change page to register page
     }//GEN-LAST:event_jLabelRegisterMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -209,7 +211,7 @@ public class Login extends javax.swing.JFrame {
         ResultSet rs;
                 String uName = jTextField1.getText();
         String pass = String.valueOf(jPasswordField1.getPassword());
-        String query = "SELECT * FROM `customers` WHERE `username` = ? AND `password` = ?";
+        String query = "SELECT * FROM `customers` WHERE `username` = ? AND `password` = ?"; // get enter parameter 
         
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
@@ -217,7 +219,7 @@ public class Login extends javax.swing.JFrame {
             ps.setString(1, uName);
             ps.setString(2, pass);
             rs = ps.executeQuery();
-            if(rs.next()) JOptionPane.showMessageDialog(null, "Yes");
+            if(rs.next()) JOptionPane.showMessageDialog(null, "Yes"); // control username password on database
             else JOptionPane.showMessageDialog(null, "No");
 
 
